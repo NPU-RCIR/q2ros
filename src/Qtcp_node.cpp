@@ -14,9 +14,9 @@ int main(int argc,char **argv){
         return -1;
     }
     ros::init(argc,argv,"q2ros");
-    ros::NodeHandle nh;
+    ros::NodeHandle nh("~");
 
-    QServer server(PoseStamped, atoi(argv[1]), 200, &nh);
+    QServer server(PoseStamped, atoi(argv[1]), 500, &nh);
     server.exec();
     return 0;
     

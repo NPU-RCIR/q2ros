@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   roscpp
   std_msgs
+  mav_msgs
   # cv_bridge
   # image_transport
 )
@@ -74,8 +75,10 @@ find_package(Threads)
 
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
-#   DEPENDENCIES
-#   geometry_msgs#   nav_msgs#   std_msgs
+  # DEPENDENCIES
+  # geometry_msgs
+  # nav_msgs
+  # std_msgs
 # )
 
 ################################################
@@ -142,7 +145,14 @@ include_directories ("/usr/include/eigen3")
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/q2ros_node.cpp)
-add_executable(${PROJECT_NAME}_node src/QServer.cpp src/Decoder.cpp src/Qtcp_node.cpp)
+add_executable(${PROJECT_NAME}_node 
+  src/QServer.cpp
+  src/Qrecv.cpp
+  src/Qsend.cpp
+  src/Decoder.cpp
+  src/Encoder.cpp
+  src/Qtcp_node.cpp)
+add_executable(${PROJECT_NAME}_send_test test/src/Send_test.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -152,12 +162,14 @@ add_executable(${PROJECT_NAME}_node src/QServer.cpp src/Decoder.cpp src/Qtcp_nod
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(mav_msgs_gencpp mav_msgs_gencpp)
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(${PROJECT_NAME}_node ${CMAKE_THREAD_LIBS_INIT} ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_send_test ${catkin_LIBRARIES})
 
 #############
 ## Install ##

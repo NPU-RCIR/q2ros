@@ -20,17 +20,32 @@
 // #include <cv_bridge/cv_bridge.h>
 
 #include "q2ros/Decoder.h"
+#include <mav_msgs/ExpState.h>
+#include <mav_msgs/ClusterState.h>
 
 struct pthread_txrx{
     pthread_t recv;
     pthread_t send;
-    int sockfd_accpeted;
+    int sockfd_accepted;
 };
 
 enum QServer_mode{
     PoseStamped = 0,
     image = 1
 };
+
+struct sock_param_warpper{
+    pthread_txrx *sock_param;
+    void *objaddr;
+    sock_param_warpper(pthread_txrx *param, void *addr):sock_param(param),objaddr(addr){};
+    sock_param_warpper(){};
+};
+
+// struct send_warpper{
+//     const int sockfd_accepted;
+//     bool isSuccess;
+//     send_warpper(const int sockfd_acc=0):sockfd_accepted(sockfd_acc),isSuccess(true){};
+// };
 
 class QServer{
     public:
@@ -40,10 +55,13 @@ class QServer{
 
     private:
     static void *s_recv_entry(void *arg);
-    void s_recv_ps(const pthread_txrx *sock_param);
-    void s_recv_im(const pthread_txrx *sock_param);
+    static void *s_send_entry(void *arg);
+    void s_recv_ps(const int sockfd_accepted);
+    // void s_recv_im(const pthread_txrx *sock_param);
 
-    void s_send(const pthread_txrx *sock_param);
+    void s_send_ctrl(const int sockfd_accepted);
+    // void s_send_exec(const mav_msgs::ExpState, const int& sockfd_acc, bool& isSuccess);
+    void s_send_exec(const mav_msgs::ClusterStateConstPtr cstate_ptr, const int sockfd_accepted);
 
     struct sockaddr_in s_addr_in;
     struct sockaddr_in c_addr_in;
@@ -51,7 +69,7 @@ class QServer{
     //socket@server
     int sockfd;
     //socket accepted
-    int sockfd_acc;
+    // int sockfd_acc;
 
     pthread_txrx pid;
     // std::list<pthread_txrx> pid;
@@ -62,13 +80,6 @@ class QServer{
     //friend class Decoder;
     
     ros::NodeHandle *nh;
-};
-
-struct sock_param_warpper{
-    pthread_txrx *sock_param;
-    QServer *objaddr;
-    sock_param_warpper(pthread_txrx *param, QServer *addr):sock_param(param),objaddr(addr){};
-    sock_param_warpper(){};
 };
 
 #endif

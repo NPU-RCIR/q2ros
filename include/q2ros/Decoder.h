@@ -9,15 +9,18 @@
 #include <vector>
 // #include <opencv2/highgui/highgui.hpp>
 
+#include <geometry_msgs/PoseStamped.h>
+
 using namespace Eigen;
 
-union convert{
+union convert_u64_d{
     uint64_t u64_;
     double d_;
 };
 
 class Decoder{
     public:
+    static geometry_msgs::PoseStamped DC_pose_stamped(uint8_t *raw_data);
     static Vector3d DC_pos(uint8_t *raw_data);
     static Quaterniond DC_ori(uint8_t *raw_data);
     static double DC_double(uint8_t *raw_data);
