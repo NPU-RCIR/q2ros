@@ -153,6 +153,7 @@ add_executable(${PROJECT_NAME}_node
   src/Encoder.cpp
   src/Qtcp_node.cpp)
 add_executable(${PROJECT_NAME}_send_test test/src/Send_test.cpp)
+add_executable(${PROJECT_NAME}_loop_test test/src/Loop_test.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -170,6 +171,7 @@ add_dependencies(mav_msgs_gencpp mav_msgs_gencpp)
 # )
 target_link_libraries(${PROJECT_NAME}_node ${CMAKE_THREAD_LIBS_INIT} ${catkin_LIBRARIES})
 target_link_libraries(${PROJECT_NAME}_send_test ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_loop_test ${catkin_LIBRARIES})
 
 #############
 ## Install ##
