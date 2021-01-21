@@ -42,7 +42,7 @@ Vector3d Decoder::DC_pos(uint8_t *raw_data){
 Quaterniond Decoder::DC_ori(uint8_t *raw_data){
     //client should use BIG ENDIAN
     /* CAUTION: decoder will NOT judge the length of data */
-    const Quaterniond dc_ori(DC_double(raw_data),DC_double(raw_data+8),DC_double(raw_data+16),DC_double(raw_data+24));
+    const Quaterniond dc_ori(DC_double(raw_data+24),DC_double(raw_data),DC_double(raw_data+8),DC_double(raw_data+16));
     //std::cout<<"decode orientation: x/y/z/w: "<<dc_ori.x()<<"\t"<<dc_ori.y()<<"\t"<<dc_ori.z()<<"\t"<<dc_ori.w()<<std::endl;
     return dc_ori;
 }
