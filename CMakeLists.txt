@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   mav_msgs
+  message_filters
   # cv_bridge
   # image_transport
 )

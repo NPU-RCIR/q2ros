@@ -74,7 +74,7 @@ void QServer::s_recv_ps(const int sockfd_accepted){
         if(!ros::ok() || tv.tv_sec-tv_old.tv_sec>=5){
             break;
         }
-        usleep(500);
+        usleep(1000);
     }
     close(sockfd_accepted);
     std::cout<<"recv terminated @Socket = "<<sockfd_accepted<<". Exiting thread."<<std::endl;

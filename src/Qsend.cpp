@@ -30,7 +30,7 @@ void QServer::s_send_ctrl(const int sockfd_accepted){
 
 void QServer::s_send_exec(const mav_msgs::ClusterStateConstPtr cstate_ptr, int sockfd_accepted){
     int flag = 0, cond = 0;
-    std::cout<<"s_send_exec() triggered."<<std::endl;
+    // std::cout<<"s_send_exec() triggered."<<std::endl;
 
     //encode here
     std::string ec_data;
@@ -50,5 +50,6 @@ void QServer::s_send_exec(const mav_msgs::ClusterStateConstPtr cstate_ptr, int s
             std::cout<<"send terminated. Exiting thread."<<std::endl;
             pthread_exit(0);
         }
+        usleep(5000);
     }
 }
