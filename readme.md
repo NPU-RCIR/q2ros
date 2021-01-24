@@ -16,8 +16,8 @@
 
   ```git
   cd ${CATKIN_WORKSPACE}/src
-  git clone -b server-1sim https://e.coding.net/dradcr7/q2ros/q2ros.git
-  git clone https://e.coding.net/dradcr7/q2ros/mav_msgs.git
+  git clone -b server-1sim https://github.com/NPU-RCIR/q2ros.git
+  git clone https://github.com/NPU-RCIR/mav_msgs.git
   cd ../catkin_make
   rosrun q2ros q2ros_node 17201
   ```
@@ -98,8 +98,8 @@
 ### Linux Server
 ```git
 cd ${CATKIN_WORKSPACE}/src
-git clone -b server-1sim https://e.coding.net/dradcr7/q2ros/q2ros.git
-git clone https://e.coding.net/dradcr7/q2ros/mav_msgs.git
+git clone -b server-1sim https://github.com/NPU-RCIR/q2ros.git
+git clone https://github.com/NPU-RCIR/mav_msgs.git
 cd ../catkin_make
 rosrun q2ros q2ros_node 17201
 ```
