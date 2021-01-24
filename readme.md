@@ -44,12 +44,14 @@
 
   |      x       |      y       |      z       |      x       |      y       |      z       |      w       |
   | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: |
-  | double pos_x | double pos_y | double pos_z | double ori_x | double ori_y | double ori_z | double ori_w |
+  | double pos_x | double pos_y | double pos_z | double ori_x | double ori_y | double ori_z | double ori_w |  
+  
   全部TCP数据：
   
   | Eth  | TCP  | IP   | CHK  | DATA |          |          |          |      |
   | ---- | ---- | ---- | ---- | ---- | -------- | -------- | -------- | ---- |
-  |      |      |      |      | bias | ps_data1 | ps_data2 | ps_data3 | ...  |
+  |      |      |      |      | bias | ps_data1 | ps_data2 | ps_data3 | ...  |  
+  
   ROS话题：PoseStamped
   
   ```git
@@ -71,7 +73,8 @@
 
   | position     |              |              | velocity     |              |              | acceleration |              |              | force      |            |            |
   | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ---------- | ---------- | ---------- |
-  | double pos_x | double pos_y | double pos_z | double vel_x | double vel_y | double vel_z | double acc_x | double acc_y | double acc_z | double f_x | double f_y | double f_z |
+  | double pos_x | double pos_y | double pos_z | double vel_x | double vel_y | double vel_z | double acc_x | double acc_y | double acc_z | double f_x | double f_y | double f_z |  
+  
   全部 TCP 数据：
   
   | Eth  | TCP  | IP   | CHK  | DATA |            |            |            |
@@ -120,7 +123,8 @@ rosrun q2ros q2ros_node 17201
   
   | x    | y    | z    | x | y | z | w |
   | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
-  | double pos_x | double pos_y | double pos_z | double ori_x | double ori_y | double ori_z | double ori_w |
+  | double pos_x | double pos_y | double pos_z | double ori_x | double ori_y | double ori_z | double ori_w |  
+  
   all data:
   | Eth  | TCP  |  IP  | CHK  | DATA |          |          |          |      |
   | :--: | :--: | :--: | :--: | :--: | :------: | :------: | :------: | :--: |
@@ -144,7 +148,8 @@ rosrun q2ros q2ros_node 17201
   
   |   position   |              |              |   velocity   |              |              | acceleration |              |              |   force    |            |            |
   | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :--------: | :--------: | :--------: |
-  | double pos_x | double pos_y | double pos_z | double vel_x | double vel_y | double vel_z | double acc_x | double acc_y | double acc_z | double f_x | double f_y | double f_z |
+  | double pos_x | double pos_y | double pos_z | double vel_x | double vel_y | double vel_z | double acc_x | double acc_y | double acc_z | double f_x | double f_y | double f_z |  
+  
   all data:
   | Eth  | TCP  |  IP  | CHK  | DATA |            |            |            |
   | :--: | :--: | :--: | :--: | :--: | :--------: | :--------: | :--------: |
