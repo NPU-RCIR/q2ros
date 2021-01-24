@@ -63,10 +63,11 @@ rosrun q2ros q2ros_node 17201
 * Class Decoder and Encoder is designed to process message from client.
 ### Basic Data Type
 * Types bellow are supported for encode & decode:
-| data type | encode | decode |
-| :-------: | :----: | :----: |
-|  double   |   BE   |   LE   |
-|  uint8_t  |  BE/LE |  BE/LE |
+
+  | data type | encode | decode |
+  | :-------: | :----: | :----: |
+  |  double   |   BE   |   LE   |
+  |  uint8_t  | BE/LE  | BE/LE  |
 * Notice that *Pack* module output is **Little Endian**, while QUARC Stream Client is  **Big Endian**.
 
 
