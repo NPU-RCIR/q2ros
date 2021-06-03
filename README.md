@@ -17,8 +17,8 @@
   ```git
   cd ${CATKIN_WORKSPACE}/src
   git clone -b server-1sim https://github.com/NPU-RCIR/q2ros.git
-  git clone https://github.com/NPU-RCIR/mav_msgs.git
-  cd ../catkin_make
+  cd ../
+  catkin_make
   rosrun q2ros q2ros_node 17201
   ```
 
